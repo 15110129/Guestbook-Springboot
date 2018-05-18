@@ -9,3 +9,16 @@
 	<natures>
 	</natures>
 </projectDescription>
+<?php
+	function xss_whitelist($input)
+	{
+	    $string = (string)$input;
+        $pattern = '/^[0-9a-zA-Z]+$/';
+        $er = (bool)false;
+
+        if (!preg_match($pattern, $string)) {
+            $er = (bool)true;
+        }
+		return $er;
+	}
+?>
